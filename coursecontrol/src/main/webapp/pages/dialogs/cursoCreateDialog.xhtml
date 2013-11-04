@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<p:dialog widgetVar="cursoCreateDialogWidget" id="cursoCreateDialogId"
+		modal="true" closable="true" draggable="false" resizable="false"
+		header="#{cursoMB.dialogHeader}">
+		<h:form id="cursoCreateDialogForm" prependId="false">
+			<h:panelGrid columns="2" style="width:600px" columnClasses="formLabel,formValue">
+				<h:outputLabel value="* #{bundle.cursoNome}:" />
+				<h:inputText value="#{cursoMB.curso.nome}" required="true"
+					label="#{bundle.cursoNome}" style="width:100%" />
+				<h:outputText value="* #{bundle.cursoDescricao}:" />
+				<h:inputTextarea value="#{cursoMB.curso.descricao}" required="true"
+					label="#{bundle.cursoDescricao}" rows="4" style="width:100%" />
+
+			</h:panelGrid>
+			<div style="text-align: center">
+				<p:commandButton value="#{bundle.create}" icon="ui-icon-plus"
+					action="#{cursoMB.saveCurso()}"
+					update=":messageGrowl :cursosForm:cursosTable"
+					onclick="cursoCreateDialogWidget.hide();" />
+				<p:commandButton value="#{bundle.cancel}" icon="ui-icon-cancel"
+					actionListener="#{cursoMB.resetCurso()}"
+					onclick="cursoCreateDialogWidget.hide();" type="button" />
+			</div>
+		</h:form>
+	</p:dialog>
+</h:body>
+</html>

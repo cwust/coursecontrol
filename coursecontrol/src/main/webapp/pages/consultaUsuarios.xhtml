@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition template="/pages/templates/master.xhtml">
+		<ui:define name="divMain">
+			<h:form id="consultaUsuariosForm">
+				<p:dataTable id="consultaUsuariosTable" value="#{usuarioMB.allEntities}"
+					var="usuario" emptyMessage="#{bundle.noRecords}" paginator="true"
+					rows="10"
+					currentPageReportTemplate="Página {currentPage} de {totalPages}"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					paginatorPosition="bottom" rowsPerPageTemplate="10,20,50">
+					<f:facet name="header">
+						<h:outputText value="#{bundle.usuarios}" />
+					</f:facet>
+					<p:column width="100">
+						<f:facet name="header">
+							<h:outputText value="#{bundle.usuarioLogin}" />
+						</f:facet>
+
+						<h:outputText value="#{usuario.login}" />
+					</p:column>
+					<p:column width="200">
+						<f:facet name="header">
+							<h:outputText value="#{bundle.pessoaNome}" />
+						</f:facet>
+
+						<h:outputText value="#{usuario.pessoa.nome}" />
+					</p:column>
+					<p:column width="100">
+						<f:facet name="header">
+							<h:outputText value="#{bundle.pessoaEmail}" />
+						</f:facet>
+
+						<h:outputText value="#{usuario.pessoa.email}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{bundle.pessoaObservacoes}" />
+						</f:facet>
+
+						<h:outputText value="#{usuario.pessoa.observacoes}" />
+					</p:column>
+					<p:column width="36" style="padding: 0px 10px;	">
+						<p:commandButton icon="ui-icon-pencil" style="height:18px;"
+							action="#{usuarioMB.editarUsuario()}">
+							<f:param name="codigoUsuario" value="#{usuario.codigo}"/>
+						</p:commandButton>
+					</p:column>
+					<f:facet name="footer">
+						<p:commandButton value="#{bundle.create}"
+							action="#{usuarioMB.novoUsuario()}" icon="ui-icon-plus"/>
+					</f:facet>
+				</p:dataTable>
+			</h:form>
+		</ui:define>	
+	</ui:composition>
+</h:body>
+</html>

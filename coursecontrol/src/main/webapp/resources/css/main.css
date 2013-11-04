@@ -1,0 +1,29 @@
+#topMessage {
+	vertical-align: middle;
+}
+
+html {
+	overflow: hidden;
+}
+
+.formLabel {
+    text-align: right;
+    width: 120px;
+}
+
+.formValue {
+		
+}
+
+.topLeftTitle {
+	
+}
+
+.topRightTitle {
+	text-align: right;
+}
+
+.ui-widget {
+font-size: 14px !important;
+}
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<f:event listener="" type=""></f:event>
+	<ui:composition template="/pages/templates/master.xhtml">
+		<ui:define name="divMain">
+
+			<h:form id="cadastroUsuariosForm">
+				<f:metadata>
+				  <f:viewParam name="codigoUsuario" value="#{usuarioMB.codigo}"/>
+				</f:metadata>
+				<h:panelGrid columns="2" style="width:600px"
+					columnClasses="formLabel,formValue">
+					<f:facet name="header">
+						<h:outputText value="Dados Pessoais" />
+					</f:facet>
+					<h:outputLabel value="#{bundle.pessoaCpf}*:" />
+					<h:inputText value="#{usuarioMB.entity.pessoa.cpf}"
+						required="false" label="#{bundle.pessoaCpf}" style="width:200px" />
+					<h:outputLabel value="AAA" />
+					<h:outputLabel value="#{usuarioMB.codigo}" />
+
+
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<ui:composition>
+		<div id="topMessage">
+			<h:form>
+				<h:panelGrid columns="2" style="width:100%"
+					columnClasses="topLeftTitle,topRightTitle">
+					<h:outputText value="#{bundle.systemTitle}" />
+					<p:commandButton value="#{bundle.logOut}"
+						action="#{userMB.logOut()}" ajax="false" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+	</ui:composition>
+</h:body>
+</html>
